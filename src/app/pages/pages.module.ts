@@ -10,6 +10,7 @@ import { NavComponent } from '../shared/components/nav/nav.component';
 import { AddTaskComponent } from './boards-page/board/add-task/add-task.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { AddBoardComponent } from './boards-page/add-board/add-board.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     BoardsPageComponent,
     BoardComponent,
     TaskComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    AddBoardComponent
   ]
 })
 export class PagesModule { }

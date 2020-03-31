@@ -3,8 +3,12 @@
 <br>
 <div class="container">
   <div class="row">
-    <div class="col-md-4" *ngFor="let board of space.boards">
+    <div class="col-md-3" *ngFor="let board of space.boards">
       <app-board [(board)]="board"></app-board>
+    </div>
+
+    <div class="col-md-3">
+      <app-add-board (addBoardEvent)="addBoard($event)"></app-add-board>
     </div>
   </div>
 </div>

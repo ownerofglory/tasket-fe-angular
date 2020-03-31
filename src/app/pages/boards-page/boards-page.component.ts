@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Space } from 'src/app/shared/models/space.model';
+import { Board } from 'src/app/shared/models/board.model';
 
 @Component({
   selector: 'app-boards-page',
@@ -50,6 +51,10 @@ export class BoardsPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  addBoard(event: Board) {
+      this.space.boards.push(event);
   }
 
 }

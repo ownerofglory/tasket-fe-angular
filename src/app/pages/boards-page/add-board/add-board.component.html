@@ -1,0 +1,34 @@
+<!-- <div class="card" style="width: 18rem;">
+  <div class="card-body"> -->
+
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="heading_add-board">
+          <h2 class="mb-0">
+            <button class="btn" type="button" data-toggle="collapse" data-target="#collapse_add-board" aria-expanded="false" aria-controls="collapse_add-board">
+              Add a new board
+            </button>
+          </h2>
+        </div>
+    
+        <div id="collapse_add-board" class="collapse" aria-labelledby="heading_add-board" data-parent="#accordionExample">
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="boardModel.name" name="inputboardname_add-board" >
+                <small class="form-text text-muted">Enter board name</small>
+
+                <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="boardModel.description"  name="inputboarddesc_add-board" >
+                <small class="form-text text-muted">Enter board description</small>
+
+                <button type="button" (click)="addBoard()" class="btn btn-primary">Add</button>
+              </div>
+            </form>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+
+  <!-- </div>
+</div> -->
