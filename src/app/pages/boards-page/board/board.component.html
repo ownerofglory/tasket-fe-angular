@@ -1,4 +1,4 @@
-<div class="card" style="height: 600px;">
+<div class="card cdk-container" style="height: 600px;">
   <div class="card-body">
     <h5 class="card-title">{{ board.name }}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{ board.description }}</h6>
@@ -10,7 +10,16 @@
       </div>
     </form>
 
-    <div class="tasks-body"  cdkDropList (cdkDropListDropped)="onDrop($event)">
-      <app-task *ngFor="let task of board.tasks" cdkDrag [(task)]="task"></app-task>
+    <div class="tasks-body cdk-list"  
+          cdkDropList
+          (cdkDropListDropped)="onDrop($event)"
+          [cdkDropListData]="board.tasks">
+      <app-task *ngFor="let task of board.tasks" #container [(task)]="task"></app-task>
     </div>
+
+    <br>
+
+    <app-add-task (taskAddEvent)="onTaskAdd($event)" [boardId]="board.id"></app-add-task>
+
+  </div>
 </div>

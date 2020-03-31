@@ -1,0 +1,24 @@
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="heading_{{ boardId }}">
+      <h2 class="mb-0">
+        <button class="btn" type="button" data-toggle="collapse" attr.data-target="#collapse_{{ boardId }}" aria-expanded="false" attr.aria-controls="collapse_{{ boardId }}">
+          Collapsible Group Item #1
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapse_{{ boardId }}" class="collapse" attr.aria-labelledby="heading_{{ boardId }}" data-parent="#accordionExample">
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" attr.name="inputtask_{{boardId}}" [(ngModel)]="taskModel.description">
+            <small class="form-text text-muted">Enter task description</small>
+            <button type="button" (click)="addTask()" class="btn btn-primary">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

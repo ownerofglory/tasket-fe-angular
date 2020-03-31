@@ -7,12 +7,17 @@ import { TaskComponent } from './boards-page/board/task/task.component';
 import { SharedModule } from '../shared/shared.module';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NavComponent } from '../shared/components/nav/nav.component';
+import { AddTaskComponent } from './boards-page/board/add-task/add-task.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    DragDropModule
+    DragDropModule,
+    BrowserModule,
+    FormsModule
   ],
   exports: [
     BoardsPageComponent
@@ -21,7 +26,8 @@ import { NavComponent } from '../shared/components/nav/nav.component';
     PagesComponent,
     BoardsPageComponent,
     BoardComponent,
-    TaskComponent
+    TaskComponent,
+    AddTaskComponent
   ]
 })
 export class PagesModule { }
