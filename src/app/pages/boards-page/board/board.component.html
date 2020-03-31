@@ -1,0 +1,16 @@
+<div class="card" style="height: 600px;">
+  <div class="card-body">
+    <h5 class="card-title">{{ board.name }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ board.description }}</h6>
+
+    <form>
+      <div class="form-group">
+        <input type="email" class="form-control" aria-describedby="emailHelp">
+        <small id="emailHelp" class="form-text text-muted">Enter text to search for a task.</small>
+      </div>
+    </form>
+
+    <div class="tasks-body"  cdkDropList (cdkDropListDropped)="onDrop($event)">
+      <app-task *ngFor="let task of board.tasks" cdkDrag [(task)]="task"></app-task>
+    </div>
+</div>
