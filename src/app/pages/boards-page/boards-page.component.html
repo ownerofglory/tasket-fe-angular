@@ -5,7 +5,7 @@
   <div class="row" cdkDropList
   (cdkDropListDropped)="onDrop($event)">
     <div class="col-md-2" *ngFor="let board of space.boards">
-      <app-board [(board)]="board"></app-board>
+      <app-board [(board)]="board" [openEditFormEvent]="openEditFormEvent"></app-board>
     </div>
 
     <div class="col-md-2">
@@ -13,4 +13,4 @@
     </div>
   </div>
 </div>
-<app-edit-task></app-edit-task>
+<app-edit-task [openEditFormEvent]="openEditFormEvent"></app-edit-task>

@@ -12,6 +12,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AddBoardComponent } from './boards-page/add-board/add-board.component';
 import { EditTaskComponent } from './boards-page/board/edit-task/edit-task.component';
+import { PriorityComponent } from './boards-page/board/task/priority/priority.component';
+import { PrioritySelectComponent } from './boards-page/board/edit-task/priority-select/priority-select.component';
 
 @NgModule({
   imports: [
@@ -31,7 +33,9 @@ import { EditTaskComponent } from './boards-page/board/edit-task/edit-task.compo
     TaskComponent,
     AddTaskComponent,
     AddBoardComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    PriorityComponent,
+    PrioritySelectComponent
   ]
 })
 export class PagesModule { }

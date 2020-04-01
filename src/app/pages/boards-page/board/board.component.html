@@ -14,7 +14,11 @@
           cdkDropList
           (cdkDropListDropped)="onDrop($event)"
           [cdkDropListData]="board.tasks">
-      <app-task *ngFor="let task of board.tasks" #container [(task)]="task"></app-task>
+      <app-task *ngFor="let task of board.tasks" 
+                #container  
+                [(task)]="task" 
+                [openEditFormEvent]="openEditFormEvent">
+      </app-task>
     </div>
 
     <br>

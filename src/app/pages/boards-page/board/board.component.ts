@@ -10,6 +10,7 @@ import { Board } from 'src/app/shared/models/board.model';
 })
 export class BoardComponent implements OnInit {
   @Input() board: Board;
+  @Input() openEditFormEvent: EventEmitter<Task>;
 
 
   constructor() { }

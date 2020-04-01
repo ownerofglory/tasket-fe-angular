@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Space } from 'src/app/shared/models/space.model';
 import { Board } from 'src/app/shared/models/board.model';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { Task } from 'src/app/shared/models/task.model';
+import { TaskPriority } from 'src/app/shared/models/task-priority.enum';
 
 @Component({
   selector: 'app-boards-page',
@@ -9,6 +11,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
   styleUrls: ['./boards-page.component.scss']
 })
 export class BoardsPageComponent implements OnInit {
+  openEditFormEvent: EventEmitter<Task> = new EventEmitter<Task>();
   space: Space = {
     id: 1,
     name: 'Awesome space',
@@ -18,11 +21,11 @@ export class BoardsPageComponent implements OnInit {
         name: 'To do',
         description: 'Tasks that must be done',
         tasks: [
-          {id: 1, description: 'do smth'},
-          {id: 2, description: 'do nothing'},
-          {id: 3, description: 'go shopping'},
-          {id: 4, description: 'take shower'},
-          {id: 5, description: 'eat smth new'}
+          {id: 1, description: 'do smth', priority: TaskPriority.High},
+          {id: 2, description: 'do nothing', priority: TaskPriority.High},
+          {id: 3, description: 'go shopping', priority: TaskPriority.Medium},
+          {id: 4, description: 'take shower', priority: TaskPriority.Low},
+          {id: 5, description: 'eat smth new', priority: TaskPriority.High}
         ]
       },
       {
@@ -30,10 +33,10 @@ export class BoardsPageComponent implements OnInit {
         name: 'In progress',
         description: 'Tasks that are currently in work',
         tasks: [
-          {id: 1, description: 'do smth different'},
-          {id: 2, description: 'do anything'},
-          {id: 3, description: 'go sport'},
-          {id: 5, description: 'cook meal'}
+          {id: 1, description: 'do smth different', priority: TaskPriority.Low},
+          {id: 2, description: 'do anything', priority: TaskPriority.Medium},
+          {id: 3, description: 'go sport', priority: TaskPriority.High},
+          {id: 5, description: 'cook meal', priority: TaskPriority.Low}
         ]
       },
       {
@@ -41,9 +44,9 @@ export class BoardsPageComponent implements OnInit {
         name: 'Done',
         description: 'Tasks that are done',
         tasks: [
-          {id: 1, description: 'clean up'},
-          {id: 2, description: 'feed the dog'},
-          {id: 3, description: 'buy stuff'},
+          {id: 1, description: 'clean up', priority: TaskPriority.Medium},
+          {id: 2, description: 'feed the dog', priority: TaskPriority.High},
+          {id: 3, description: 'buy stuff', priority: TaskPriority.Low},
         ]
       }
     ]

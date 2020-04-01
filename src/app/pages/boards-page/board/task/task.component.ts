@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { Task } from 'src/app/shared/models/task.model';
 
 @Component({
@@ -8,6 +8,7 @@ import { Task } from 'src/app/shared/models/task.model';
 })
 export class TaskComponent implements OnInit {
   @Input() task: Task;
+  @Input() openEditFormEvent: EventEmitter<Task>;
 
   constructor() { }
 
@@ -15,7 +16,7 @@ export class TaskComponent implements OnInit {
   }
 
   openEditForm() {
-    
+    this.openEditFormEvent.emit(this.task);
   }
 
 }
