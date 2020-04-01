@@ -1,4 +1,4 @@
-<div class="card cdk-box" cdkDrag>
+<div class="card cdk-box" (click)="openEditForm()" data-toggle="modal" data-target="#exampleModal" cdkDrag>
   <div class="card-body">
     {{ task.description }}
   </div>

@@ -1,0 +1,9 @@
+.board-group > .row {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.board-group > .row > .col-md-2 {
+    display: inline-block;
+    float: none;
+}

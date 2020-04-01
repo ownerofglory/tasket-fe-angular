@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Space } from 'src/app/shared/models/space.model';
 import { Board } from 'src/app/shared/models/board.model';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-boards-page',
@@ -55,6 +56,10 @@ export class BoardsPageComponent implements OnInit {
 
   addBoard(event: Board) {
       this.space.boards.push(event);
+  }
+
+  onDrop(event: CdkDragDrop<Board[]>) {
+    moveItemInArray(this.space.boards, event.previousIndex, event.currentIndex);
   }
 
 }

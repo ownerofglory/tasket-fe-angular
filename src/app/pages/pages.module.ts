@@ -11,6 +11,7 @@ import { AddTaskComponent } from './boards-page/board/add-task/add-task.componen
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AddBoardComponent } from './boards-page/add-board/add-board.component';
+import { EditTaskComponent } from './boards-page/board/edit-task/edit-task.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { AddBoardComponent } from './boards-page/add-board/add-board.component';
     BoardComponent,
     TaskComponent,
     AddTaskComponent,
-    AddBoardComponent
+    AddBoardComponent,
+    EditTaskComponent
   ]
 })
 export class PagesModule { }

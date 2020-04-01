@@ -1,14 +1,16 @@
 <app-nav></app-nav>
 
 <br>
-<div class="container">
-  <div class="row">
-    <div class="col-md-3" *ngFor="let board of space.boards">
+<div class="container-fluid board-group">
+  <div class="row" cdkDropList
+  (cdkDropListDropped)="onDrop($event)">
+    <div class="col-md-2" *ngFor="let board of space.boards">
       <app-board [(board)]="board"></app-board>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-2">
       <app-add-board (addBoardEvent)="addBoard($event)"></app-add-board>
     </div>
   </div>
 </div>
+<app-edit-task></app-edit-task>
