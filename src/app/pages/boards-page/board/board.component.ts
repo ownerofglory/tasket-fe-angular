@@ -18,9 +18,9 @@ export class BoardComponent implements OnInit {
   ngOnInit() {
   }
 
-  onDrop(event: CdkDragDrop<Task[]>) {
+  onDrop(event) {
     console.log('drop element', event);
-    moveItemInArray(this.board.tasks, event.previousIndex, event.currentIndex);
+    //moveItemInArray(this.board.tasks, event.previousIndex, event.currentIndex);
   }
 
   moveTasks() {
@@ -30,5 +30,6 @@ export class BoardComponent implements OnInit {
   onTaskAdd(event: Task) {
     this.board.tasks.push(event);
   }
+
 
 }

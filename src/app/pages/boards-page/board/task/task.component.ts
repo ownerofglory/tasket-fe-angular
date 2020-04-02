@@ -19,4 +19,14 @@ export class TaskComponent implements OnInit {
     this.openEditFormEvent.emit(this.task);
   }
 
+
+  dragStart(event, task: Task) {
+    console.log('drag start event', event);
+    console.log('task', task);
+  }
+
+  dragEnd(event) {
+    console.log('drag end event', event);
+  }
+
 }

@@ -2,8 +2,7 @@
 
 <br>
 <div class="container-fluid board-group">
-  <div class="row" cdkDropList
-  (cdkDropListDropped)="onDrop($event)">
+  <div class="row">
     <div class="col-md-2" *ngFor="let board of space.boards">
       <app-board [(board)]="board" [openEditFormEvent]="openEditFormEvent"></app-board>
     </div>

@@ -1,5 +1,15 @@
-<div class="list-group-item cdk-box" (click)="openEditForm()" data-toggle="modal" data-target="#exampleModal" cdkDrag>
+<div class="task list-group-item"
+      (click)="openEditForm()"  
+      data-toggle="modal" 
+      data-target="#exampleModal"
+      (onDragStart)="dragStart($event, task)" 
+      (onDragEnd)="dragEnd($event)"
+      pDraggable="task">
   <div class="">
+    <p>
+      <span class="badge badge-primary">Primary</span>
+      <span class="badge badge-secondary">Secondary</span>
+    </p>
     <p>
       <span>
         {{ task.description }}
@@ -7,6 +17,9 @@
       <span style="float: right">
         <app-priority [(priority)]="task.priority"></app-priority>
       </span>
+    </p>
+    <p>
+      <img data-toggle="tooltip" data-placement="top" title="Random User" style="border-radius: 50%; width: 10%;" src="https://randomuser.me/api/portraits/thumb/men/75.jpg">
     </p>
   </div>
 </div>

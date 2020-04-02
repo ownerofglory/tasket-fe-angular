@@ -9,6 +9,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NavComponent } from '../shared/components/nav/nav.component';
 import { AddTaskComponent } from './boards-page/board/add-task/add-task.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { AddBoardComponent } from './boards-page/add-board/add-board.component';
 import { EditTaskComponent } from './boards-page/board/edit-task/edit-task.component';
@@ -21,7 +22,9 @@ import { PrioritySelectComponent } from './boards-page/board/edit-task/priority-
     SharedModule,
     DragDropModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    DragDropModule,
+    BrowserAnimationsModule
   ],
   exports: [
     BoardsPageComponent
