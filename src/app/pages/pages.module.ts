@@ -15,6 +15,7 @@ import { AddBoardComponent } from './boards-page/add-board/add-board.component';
 import { EditTaskComponent } from './boards-page/board/edit-task/edit-task.component';
 import { PriorityComponent } from './boards-page/board/task/priority/priority.component';
 import { PrioritySelectComponent } from './boards-page/board/edit-task/priority-select/priority-select.component';
+import { SpacesMockService } from '../shared/services/mock/spaces-mock.service';
 
 @NgModule({
   imports: [
@@ -39,6 +40,9 @@ import { PrioritySelectComponent } from './boards-page/board/edit-task/priority-
     EditTaskComponent,
     PriorityComponent,
     PrioritySelectComponent
+  ],
+  providers: [
+    
   ]
 })
 export class PagesModule { }
