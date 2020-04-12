@@ -1,0 +1,8 @@
+stages:
+    - build
+    - test
+    - deploy
+
+job 0:
+    stage: build
+    script: ng build --prod

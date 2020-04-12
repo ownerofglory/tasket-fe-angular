@@ -235,5 +235,481 @@
             ]
          }
       ]
+   },
+
+   {  "id": 2,
+      "name": "Space 2",
+      "lists": [
+         {
+            "id":1,
+            "name":"To do",
+            "description":"Tasks that must be done",
+            "tasks":[
+               {
+                  "id":1,
+                  "description":"do smth",
+                  "priority":"High",
+                  "attendees":[
+                     {
+                        "firstName":"John",
+                        "lastName":"Doe",
+                        "imageThumbnailUrl":"https://randomuser.me/api/portraits/thumb/men/75.jpg",
+                        "imageUrl":""
+                     }
+                  ],
+                  "labels":[
+                     {
+                        "name":"primary",
+                        "status":"PRIMARY"
+                     }
+                  ]
+               },
+               {
+                  "id":2,
+                  "description":"do nothing",
+                  "priority":"High",
+                  "attendees":[
+      
+                  ],
+                  "labels":[
+                     {
+                        "name":"secondary",
+                        "status":"SECONDARY"
+                     }
+                  ]
+               },
+               {
+                  "id":3,
+                  "description":"go shopping",
+                  "priority":"Medium",
+                  "attendees":[
+                     {
+                        "firstName":"John",
+                        "lastName":"Doe",
+                        "imageThumbnailUrl":"https://randomuser.me/api/portraits/thumb/men/75.jpg",
+                        "imageUrl":""
+                     },
+                     {
+                        "firstName":"Bobby",
+                        "lastName":"Bowman",
+                        "imageThumbnailUrl":"https://randomuser.me/api/portraits/thumb/men/7.jpg",
+                        "imageUrl":""
+                     }
+                  ],
+                  "labels":[
+      
+                  ]
+               },
+               {
+                  "id":4,
+                  "description":"take shower",
+                  "priority":"Low",
+                  "attendees":[
+      
+                  ],
+                  "labels":[
+      
+                  ]
+               },
+               {
+                  "id":5,
+                  "description":"eat smth new",
+                  "priority":"High",
+                  "attendees":[
+      
+                  ],
+                  "labels":[
+                     {
+                        "name":"primary",
+                        "status":"PRIMARY"
+                     },
+                     {
+                        "name":"info",
+                        "status":"INFO"
+                     }
+                  ]
+               }
+            ]
+         },
+         {
+            "id":2,
+            "name":"In progress",
+            "description":"Tasks that are currently in work",
+            "tasks":[
+               {
+                  "id":1,
+                  "description":"do smth different",
+                  "priority":"Low",
+                  "attendees":[
+      
+                  ],
+                  "labels":[
+      
+                  ]
+               },
+               {
+                  "id":2,
+                  "description":"do anything",
+                  "priority":"Medium",
+                  "attendees":[
+                     {
+                        "firstName":"Milton",
+                        "lastName":"Green",
+                        "imageThumbnailUrl":"https://randomuser.me/api/portraits/thumb/men/36.jpg",
+                        "imageUrl":""
+                     },
+                     {
+                        "firstName":"Rene",
+                        "lastName":"Hawkins",
+                        "imageThumbnailUrl":"https://randomuser.me/api/portraits/thumb/men/8.jpg",
+                        "imageUrl":""
+                     },
+                     {
+                        "firstName":"Calvin",
+                        "lastName":"Rose",
+                        "imageThumbnailUrl":"https://randomuser.me/api/portraits/thumb/men/39.jpg",
+                        "imageUrl":""
+                     }
+                  ],
+                  "labels":[
+                     {
+                        "name":"warning",
+                        "status":"WARNING"
+                     },
+                     {
+                        "name":"primary",
+                        "status":"PRIMARY"
+                     },
+                     {
+                        "name":"success",
+                        "status":"SUCCESS"
+                     }
+                  ]
+               },
+               {
+                  "id":3,
+                  "description":"go sport",
+                  "priority":"High",
+                  "attendees":[
+      
+                  ],
+                  "labels":[
+                     {
+                        "name":"dark",
+                        "status":"DARK"
+                     },
+                     {
+                        "name":"danger",
+                        "status":"DANGER"
+                     }
+                  ]
+               },
+               {
+                  "id":5,
+                  "description":"cook meal",
+                  "priority":"Low",
+                  "attendees":[
+      
+                  ],
+                  "labels":[
+      
+                  ]
+               }
+            ]
+         },
+         {
+            "id":3,
+            "name":"Done",
+            "description":"Tasks that are done",
+            "tasks":[
+               {
+                  "id":1,
+                  "description":"clean up",
+                  "priority":"Medium",
+                  "attendees":[
+      
+                  ],
+                  "labels":[
+                     {
+                        "name":"info",
+                        "status":"INFO"
+                     },
+                     {
+                        "name":"dark",
+                        "status":"DARK"
+                     }
+                  ]
+               },
+               {
+                  "id":2,
+                  "description":"feed the dog",
+                  "priority":"High",
+                  "attendees":[
+      
+                  ],
+                  "labels":[
+      
+                  ]
+               },
+               {
+                  "id":3,
+                  "description":"buy stuff",
+                  "priority":"Low",
+                  "attendees":[
+                     {
+                        "firstName":"Rene",
+                        "lastName":"Hawkins",
+                        "imageThumbnailUrl":"https://randomuser.me/api/portraits/thumb/men/8.jpg",
+                        "imageUrl":""
+                     }
+                  ],
+                  "labels":[
+                     {
+                        "name":"light",
+                        "status":"LIGHT"
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
+   },
+   
+   {  "id": 3,
+      "name": "Space 1",
+      "lists": [
+         {
+            "id":1,
+            "name":"To do",
+            "description":"Tasks that must be done",
+            "tasks":[
+               {
+                  "id":1,
+                  "description":"do smth",
+                  "priority":"High",
+                  "attendees":[
+                     {
+                        "firstName":"John",
+                        "lastName":"Doe",
+                        "imageThumbnailUrl":"https://randomuser.me/api/portraits/thumb/men/75.jpg",
+                        "imageUrl":""
+                     }
+                  ],
+                  "labels":[
+                     {
+                        "name":"primary",
+                        "status":"PRIMARY"
+                     }
+                  ]
+               },
+               {
+                  "id":2,
+                  "description":"do nothing",
+                  "priority":"High",
+                  "attendees":[
+      
+                  ],
+                  "labels":[
+                     {
+                        "name":"secondary",
+                        "status":"SECONDARY"
+                     }
+                  ]
+               },
+               {
+                  "id":3,
+                  "description":"go shopping",
+                  "priority":"Medium",
+                  "attendees":[
+                     {
+                        "firstName":"John",
+                        "lastName":"Doe",
+                        "imageThumbnailUrl":"https://randomuser.me/api/portraits/thumb/men/75.jpg",
+                        "imageUrl":""
+                     },
+                     {
+                        "firstName":"Bobby",
+                        "lastName":"Bowman",
+                        "imageThumbnailUrl":"https://randomuser.me/api/portraits/thumb/men/7.jpg",
+                        "imageUrl":""
+                     }
+                  ],
+                  "labels":[
+      
+                  ]
+               },
+               {
+                  "id":4,
+                  "description":"take shower",
+                  "priority":"Low",
+                  "attendees":[
+      
+                  ],
+                  "labels":[
+      
+                  ]
+               },
+               {
+                  "id":5,
+                  "description":"eat smth new",
+                  "priority":"High",
+                  "attendees":[
+      
+                  ],
+                  "labels":[
+                     {
+                        "name":"primary",
+                        "status":"PRIMARY"
+                     },
+                     {
+                        "name":"info",
+                        "status":"INFO"
+                     }
+                  ]
+               }
+            ]
+         },
+         {
+            "id":2,
+            "name":"In progress",
+            "description":"Tasks that are currently in work",
+            "tasks":[
+               {
+                  "id":1,
+                  "description":"do smth different",
+                  "priority":"Low",
+                  "attendees":[
+      
+                  ],
+                  "labels":[
+      
+                  ]
+               },
+               {
+                  "id":2,
+                  "description":"do anything",
+                  "priority":"Medium",
+                  "attendees":[
+                     {
+                        "firstName":"Milton",
+                        "lastName":"Green",
+                        "imageThumbnailUrl":"https://randomuser.me/api/portraits/thumb/men/36.jpg",
+                        "imageUrl":""
+                     },
+                     {
+                        "firstName":"Rene",
+                        "lastName":"Hawkins",
+                        "imageThumbnailUrl":"https://randomuser.me/api/portraits/thumb/men/8.jpg",
+                        "imageUrl":""
+                     },
+                     {
+                        "firstName":"Calvin",
+                        "lastName":"Rose",
+                        "imageThumbnailUrl":"https://randomuser.me/api/portraits/thumb/men/39.jpg",
+                        "imageUrl":""
+                     }
+                  ],
+                  "labels":[
+                     {
+                        "name":"warning",
+                        "status":"WARNING"
+                     },
+                     {
+                        "name":"primary",
+                        "status":"PRIMARY"
+                     },
+                     {
+                        "name":"success",
+                        "status":"SUCCESS"
+                     }
+                  ]
+               },
+               {
+                  "id":3,
+                  "description":"go sport",
+                  "priority":"High",
+                  "attendees":[
+      
+                  ],
+                  "labels":[
+                     {
+                        "name":"dark",
+                        "status":"DARK"
+                     },
+                     {
+                        "name":"danger",
+                        "status":"DANGER"
+                     }
+                  ]
+               },
+               {
+                  "id":5,
+                  "description":"cook meal",
+                  "priority":"Low",
+                  "attendees":[
+      
+                  ],
+                  "labels":[
+      
+                  ]
+               }
+            ]
+         },
+         {
+            "id":3,
+            "name":"Done",
+            "description":"Tasks that are done",
+            "tasks":[
+               {
+                  "id":1,
+                  "description":"clean up",
+                  "priority":"Medium",
+                  "attendees":[
+      
+                  ],
+                  "labels":[
+                     {
+                        "name":"info",
+                        "status":"INFO"
+                     },
+                     {
+                        "name":"dark",
+                        "status":"DARK"
+                     }
+                  ]
+               },
+               {
+                  "id":2,
+                  "description":"feed the dog",
+                  "priority":"High",
+                  "attendees":[
+      
+                  ],
+                  "labels":[
+      
+                  ]
+               },
+               {
+                  "id":3,
+                  "description":"buy stuff",
+                  "priority":"Low",
+                  "attendees":[
+                     {
+                        "firstName":"Rene",
+                        "lastName":"Hawkins",
+                        "imageThumbnailUrl":"https://randomuser.me/api/portraits/thumb/men/8.jpg",
+                        "imageUrl":""
+                     }
+                  ],
+                  "labels":[
+                     {
+                        "name":"light",
+                        "status":"LIGHT"
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
    }
 ]
