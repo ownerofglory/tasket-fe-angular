@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Board } from 'src/app/shared/models/board.model';
+import { List } from 'src/app/shared/models/list.model';
 
 @Component({
   selector: 'app-add-board',
@@ -7,8 +7,8 @@ import { Board } from 'src/app/shared/models/board.model';
   styleUrls: ['./add-board.component.scss']
 })
 export class AddBoardComponent implements OnInit {
-  @Output() addBoardEvent: EventEmitter<Board> = new EventEmitter<Board>();
-  boardModel: Board = new Board();
+  @Output() addBoardEvent: EventEmitter<List> = new EventEmitter<List>();
+  boardModel: List = new List();
 
   constructor() { }
 
@@ -16,12 +16,12 @@ export class AddBoardComponent implements OnInit {
   }
 
   addBoard() {
-    const newBoard = new Board();
+    const newBoard = new List();
     newBoard.description = this.boardModel.description;
     newBoard.name = this.boardModel.name;
     newBoard.tasks = [];
     this.addBoardEvent.emit(newBoard);
-    this.boardModel = new Board();
+    this.boardModel = new List();
   }
 
 }

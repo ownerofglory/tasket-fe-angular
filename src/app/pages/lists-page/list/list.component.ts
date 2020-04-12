@@ -1,15 +1,15 @@
 import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Task } from 'src/app/shared/models/task.model';
-import { Board } from 'src/app/shared/models/board.model';
+import { List } from 'src/app/shared/models/list.model';
 
 @Component({
-  selector: 'app-board',
-  templateUrl: './board.component.html',
-  styleUrls: ['./board.component.scss']
+  selector: 'app-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss']
 })
-export class BoardComponent implements OnInit {
-  @Input() board: Board;
+export class ListComponent implements OnInit {
+  @Input() list: List;
   @Input() openEditFormEvent: EventEmitter<Task>;
 
 
@@ -28,7 +28,7 @@ export class BoardComponent implements OnInit {
   }
 
   onTaskAdd(event: Task) {
-    this.board.tasks.push(event);
+    this.list.tasks.push(event);
   }
 
 

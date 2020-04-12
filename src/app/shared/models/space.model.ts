@@ -1,7 +1,7 @@
-import { Board } from './board.model';
+import { List } from './list.model';
 
 export class Space {
     id: number;
     name: string;
-    boards: Board[];
+    lists: List[];
 }

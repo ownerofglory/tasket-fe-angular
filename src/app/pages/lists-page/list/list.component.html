@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title">{{ board.name }}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{ board.description }}</h6>
+    <h5 class="card-title">{{ list.name }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ list.description }}</h6>
 
     <form>
       <div class="form-group">
@@ -11,7 +11,7 @@
     </form>
 
     <div class="tasks-body cdk-list drag-column" (onDrop)="onDrop($event)" pDroppable="task">
-      <app-task *ngFor="let task of board.tasks" 
+      <app-task *ngFor="let task of list.tasks" 
                 #container  
                 [(task)]="task" 
                 [openEditFormEvent]="openEditFormEvent">
@@ -20,7 +20,7 @@
 
     <br>
 
-    <app-add-task (taskAddEvent)="onTaskAdd($event)" [boardId]="board.id"></app-add-task>
+    <app-add-task (taskAddEvent)="onTaskAdd($event)" [boardId]="list.id"></app-add-task>
 
   </div>
 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Space } from 'src/app/shared/models/space.model';
-import { Board } from 'src/app/shared/models/board.model';
+import { List } from 'src/app/shared/models/list.model';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Task } from 'src/app/shared/models/task.model';
 import { TaskPriority } from 'src/app/shared/models/task-priority.enum';
@@ -8,16 +8,16 @@ import { TaskLabel, TaskLabelStatus } from 'src/app/shared/models/task-label.mod
 import { SpacesMockService } from 'src/app/shared/services/mock/spaces-mock.service';
 
 @Component({
-  selector: 'app-boards-page',
-  templateUrl: './boards-page.component.html',
-  styleUrls: ['./boards-page.component.scss']
+  selector: 'app-lists-page',
+  templateUrl: './lists-page.component.html',
+  styleUrls: ['./lists-page.component.scss']
 })
-export class BoardsPageComponent implements OnInit {
+export class ListsPageComponent implements OnInit {
   openEditFormEvent: EventEmitter<Task> = new EventEmitter<Task>();
   space: Space = {
     id: 1,
     name: 'Awesome space',
-    boards:  [
+    lists:  [
       {
         id: 1,
         name: 'To do',
@@ -68,12 +68,12 @@ export class BoardsPageComponent implements OnInit {
     //this.space = spaces[0];
   }
 
-  addBoard(event: Board) {
-      this.space.boards.push(event);
+  addBoard(event: List) {
+      this.space.lists.push(event);
   }
 
-  onDrop(event: CdkDragDrop<Board[]>) {
-    moveItemInArray(this.space.boards, event.previousIndex, event.currentIndex);
+  onDrop(event: CdkDragDrop<List[]>) {
+    moveItemInArray(this.space.lists, event.previousIndex, event.currentIndex);
   }
 
 }

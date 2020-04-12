@@ -1,6 +1,6 @@
 import { Task } from './task.model';
 
-export class Board {
+export class List {
     id: number;
     name: string;
     description: string;
