@@ -17,6 +17,8 @@ import { PrioritySelectComponent } from './lists-page/list/edit-task/priority-se
 import { SpacesMockService } from '../shared/services/mock/spaces-mock.service';
 import { ListComponent } from './lists-page/list/list.component';
 import { SpacesPageComponent } from './spaces-page/spaces-page.component';
+import { SpaceComponent } from './spaces-page/space/space.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -26,7 +28,8 @@ import { SpacesPageComponent } from './spaces-page/spaces-page.component';
     BrowserModule,
     FormsModule,
     DragDropModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule
   ],
   exports: [
     ListsPageComponent,
@@ -42,7 +45,8 @@ import { SpacesPageComponent } from './spaces-page/spaces-page.component';
     EditTaskComponent,
     PriorityComponent,
     PrioritySelectComponent,
-    SpacesPageComponent
+    SpacesPageComponent,
+    SpaceComponent
   ],
   providers: [
     

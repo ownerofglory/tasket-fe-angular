@@ -6,6 +6,7 @@ import { Task } from 'src/app/shared/models/task.model';
 import { TaskPriority } from 'src/app/shared/models/task-priority.enum';
 import { TaskLabel, TaskLabelStatus } from 'src/app/shared/models/task-label.model';
 import { SpacesMockService } from 'src/app/shared/services/mock/spaces-mock.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-lists-page',
@@ -54,9 +55,12 @@ export class ListsPageComponent implements OnInit {
     ]
   };
 
-  constructor(private spacesService: SpacesMockService) { }
+  constructor(private spacesService: SpacesMockService,
+    public activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(p => console.log('param', p));
+
     var spaces = [];
     this.spacesService.getSpaces().subscribe(success => {
       console.log('success', success);
