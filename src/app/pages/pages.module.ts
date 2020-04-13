@@ -28,6 +28,18 @@ import { SettingsPageComponent } from './settings-page/settings-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { NotfoundPageComponent } from './notfound-page/notfound-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { ForgotPasswordPageComponent } from './forgot-password-page/forgot-password-page.component';
+import { ForgotPasswordPageModule } from './forgot-password-page/forgot-password-page.module';
+import { AdminPageModule } from './admin-page/admin-page.module';
+import { HomePageModule } from './home-page/home-page.module';
+import { NotfoundPageModule } from './notfound-page/notfound-page.module';
+import { SettingsPageModule } from './settings-page/settings-page.module';
+import { ProfilePageModule } from './profile-page/profile-page.module';
+import { SignupPageModule } from './signup-page/signup-page.module';
+import { LoginPageModule } from './login-page/login-page.module';
+import { SpacesModule } from './spaces-page/spaces-page.module';
+import { ListPageModule } from './lists-page/list-page.module';
 
 @NgModule({
   imports: [
@@ -39,7 +51,17 @@ import { HomePageComponent } from './home-page/home-page.component';
     DragDropModule,
     BrowserAnimationsModule,
     RouterModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    ForgotPasswordPageModule,
+    AdminPageModule,
+    HomePageModule,
+    NotfoundPageModule,
+    SettingsPageModule,
+    ProfilePageModule,
+    SignupPageModule,
+    LoginPageModule,
+    SpacesModule,
+    ListPageModule
   ],
   exports: [
     ListsPageComponent,
@@ -49,31 +71,15 @@ import { HomePageComponent } from './home-page/home-page.component';
     ProfilePageComponent,
     SettingsPageComponent,
     NotfoundPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    AdminPageComponent,
+    NotfoundPageComponent
   ],
   declarations: [
-    PagesComponent,
-    ListsPageComponent,
-    ListComponent,
-    TaskComponent,
-    AddTaskComponent,
-    AddBoardComponent,
-    EditTaskComponent,
-    PriorityComponent,
-    PrioritySelectComponent,
-    SpacesPageComponent,
-    SpaceComponent,
-    LoginPageComponent,
-    SignupPageComponent,
-    SignupFormComponent,
-    SignupSuccessComponent,
-    ProfilePageComponent,
-    SettingsPageComponent,
-    NotfoundPageComponent,
-    HomePageComponent
+    PagesComponent
   ],
   providers: [
-    
+
   ]
 })
 export class PagesModule { }
