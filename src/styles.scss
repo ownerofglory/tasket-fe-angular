@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.main-background {
+    background-color: #224abe;
+    background-image: linear-gradient(180deg,#86a5ff 10%,#224abe 100%);
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height: 100%;
+}
