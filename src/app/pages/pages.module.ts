@@ -19,6 +19,15 @@ import { ListComponent } from './lists-page/list/list.component';
 import { SpacesPageComponent } from './spaces-page/spaces-page.component';
 import { SpaceComponent } from './spaces-page/space/space.component';
 import { RouterModule } from '@angular/router';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { SignupPageComponent } from './signup-page/signup-page.component';
+import { SignupFormComponent } from './signup-page/signup-form/signup-form.component';
+import { PagesRoutingModule } from './pages-routing.module';
+import { SignupSuccessComponent } from './signup-page/signup-success/signup-success.component';
+import { SettingsPageComponent } from './settings-page/settings-page.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { NotfoundPageComponent } from './notfound-page/notfound-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   imports: [
@@ -29,11 +38,18 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     DragDropModule,
     BrowserAnimationsModule,
-    RouterModule
+    RouterModule,
+    PagesRoutingModule
   ],
   exports: [
     ListsPageComponent,
-    SpacesPageComponent
+    SpacesPageComponent,
+    LoginPageComponent,
+    SignupPageComponent,
+    ProfilePageComponent,
+    SettingsPageComponent,
+    NotfoundPageComponent,
+    HomePageComponent
   ],
   declarations: [
     PagesComponent,
@@ -46,7 +62,15 @@ import { RouterModule } from '@angular/router';
     PriorityComponent,
     PrioritySelectComponent,
     SpacesPageComponent,
-    SpaceComponent
+    SpaceComponent,
+    LoginPageComponent,
+    SignupPageComponent,
+    SignupFormComponent,
+    SignupSuccessComponent,
+    ProfilePageComponent,
+    SettingsPageComponent,
+    NotfoundPageComponent,
+    HomePageComponent
   ],
   providers: [
     

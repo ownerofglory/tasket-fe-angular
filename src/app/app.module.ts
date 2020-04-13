@@ -15,8 +15,8 @@ import { SpacesPageComponent } from './pages/spaces-page/spaces-page.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    PagesModule
+    PagesModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
