@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { LoginPageComponent } from './login-page.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-    imports: [],
+    imports: [SharedModule],
     exports: [LoginPageComponent],
     declarations: [LoginPageComponent]
 })

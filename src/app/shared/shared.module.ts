@@ -4,6 +4,7 @@ import { SharedComponent } from './shared.component';
 import { NavComponent } from './components/nav/nav.component';
 import { SpacesMockService } from './services/mock/spaces-mock.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SpinnerService } from './services/spinner/spinner.service';
 
 @NgModule({
   imports: [
@@ -11,11 +12,11 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   exports: [
-    NavComponent
+    NavComponent,
   ],
   declarations: [
     SharedComponent,
-    NavComponent
+    NavComponent,
   ],
   providers: [
   ]
