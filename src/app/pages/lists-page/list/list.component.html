@@ -1,9 +1,9 @@
 <div class="card shadowed task-list">
-  <div class="card-body">
+  <div class="card-body task-list-body">
     <div class="row">
       <div class="col-md-10">
-      <h5 class="card-title">{{ list.name }}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{ list.description }}</h6>
+      <h5 class="card-title task-list-title">{{ list.name }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted task-list-description">{{ list.description }}</h6>
       </div>
       <div class="col-md-2 justify-content-end">
         <div class="dropdown">
@@ -32,8 +32,6 @@
                 [openEditFormEvent]="openEditFormEvent">
       </app-task>
     </div>
-
-    <br>
 
     <app-add-task (taskAddEvent)="onTaskAdd($event)" [boardId]="list.id"></app-add-task>
 

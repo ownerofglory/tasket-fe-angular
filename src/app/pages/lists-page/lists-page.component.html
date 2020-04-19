@@ -3,7 +3,7 @@
 <br>
 <div class="container-fluid board-group">
   <div class="row">
-    <div class="col-md-3" *ngFor="let list of space.lists">
+    <div class="col-lg-3 col-md-3" *ngFor="let list of space.lists">
       <app-list [(list)]="list" [openEditFormEvent]="openEditFormEvent"></app-list>
     </div>
 

@@ -6,10 +6,10 @@
       (onDragEnd)="dragEnd($event)"
       pDraggable="task">
   <div class="">
-    <p>
-      <span *ngFor="let label of task.labels" class="badge badge-{{label.name}}">{{label.name}}</span>
+    <p class="label-bar">
+      <span *ngFor="let label of task.labels" class="badge badge-{{label.name}} task-label">{{label.name}}</span>
     </p>
-    <p>
+    <p class="task-description">
       <span>
         {{ task.description }}
       </span>
@@ -17,8 +17,8 @@
         <app-priority [(priority)]="task.priority"></app-priority>
       </span>
     </p>
-    <p>
-      <img *ngFor="let attendee of task.attendees" data-toggle="tooltip" data-placement="top" title="{{attendee.firstName}} {{attendee.lastName}}" style="border-radius: 50%; width: 10%;" src="{{attendee.imageThumbnailUrl}}">
+    <p class="attendee-bar">
+      <img class="attendee-picture" *ngFor="let attendee of task.attendees" data-toggle="tooltip" data-placement="top" title="{{attendee.firstName}} {{attendee.lastName}}" src="{{attendee.imageThumbnailUrl}}">
     </p>
   </div>
 </div>
