@@ -13,6 +13,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AddToTaskListComponent } from './list/edit-task/add-to-task-list/add-to-task-list.component';
 import { ActionsListComponent } from './list/edit-task/actions-list/actions-list.component';
+import { ListDropdownComponent } from './list/list-dropdown/list-dropdown.component';
 
 @NgModule({
     imports: [
@@ -32,7 +33,8 @@ import { ActionsListComponent } from './list/edit-task/actions-list/actions-list
         PriorityComponent,
         PrioritySelectComponent,
         AddToTaskListComponent,
-        ActionsListComponent
+        ActionsListComponent,
+        ListDropdownComponent
     ]
 })
 export class ListPageModule {}
