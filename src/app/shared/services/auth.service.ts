@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginUser } from '../models/dto/loginuser.model';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
@@ -19,6 +19,15 @@ export class AuthService {
 
   login(creds: LoginUser): Observable<User> {
     return this.httpClient.post<User>(this.baseUrl + '/authenticate', creds);
+  }
+
+  getCurrentUser(): Observable<User> {
+    const token = localStorage.getItem('Authentication');
+    const headers = new HttpHeaders()
+      .set('Authorization', 'Bearer ' + token);
+    console.log('token', token);
+
+    return this.httpClient.get<User>(this.baseUrl + '/info', { headers: headers });
   }
 
 }
