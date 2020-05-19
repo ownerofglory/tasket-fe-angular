@@ -2,7 +2,6 @@ image: node:latest
 
 stages:
     - build
-    - deploy
 
 build:
     stage: build
@@ -13,6 +12,3 @@ build:
         - npm install --quiet
         - npm run build-prod
 
-deploy:
-    stage: deploy
-    
