@@ -2,6 +2,8 @@ import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Task } from 'src/app/shared/models/task.model';
 import { List } from 'src/app/shared/models/list.model';
+import { TaskService } from 'src/app/shared/services/task.service';
+import { containsElement } from '@angular/animations/browser/src/render/shared';
 
 @Component({
   selector: 'app-list',
@@ -13,9 +15,19 @@ export class ListComponent implements OnInit {
   @Input() openEditFormEvent: EventEmitter<Task>;
 
 
-  constructor() { }
+  constructor(private taskService: TaskService) { }
 
   ngOnInit() {
+    this.getAllTasks();
+  }
+
+  getAllTasks() {
+    this.taskService.getAllByTaskListId(this.list.id).subscribe(success => {
+      this.list.tasks = success;
+    },
+    error => {
+      console.error('Error getting tasks', error);
+    });
   }
 
   onDrop(event) {
@@ -28,7 +40,14 @@ export class ListComponent implements OnInit {
   }
 
   onTaskAdd(event: Task) {
-    this.list.tasks.push(event);
+    event.taskListId = this.list.id;
+    this.taskService.create(event).subscribe(success => {
+      this.getAllTasks();
+    },
+    error => {
+      console.error('error creating task', event, error);
+    });
+    //this.list.tasks.push(event);
   }
 
 

@@ -4,4 +4,5 @@ export class User {
     lastName: string;
     imageThumbnailUrl: string;
     imageUrl: string;
+    token: string;
 }

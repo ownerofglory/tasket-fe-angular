@@ -7,6 +7,8 @@ import { TaskPriority } from 'src/app/shared/models/task-priority.enum';
 import { TaskLabel, TaskLabelStatus } from 'src/app/shared/models/task-label.model';
 import { SpacesMockService } from 'src/app/shared/services/mock/spaces-mock.service';
 import { ActivatedRoute } from '@angular/router';
+import { SpaceService } from 'src/app/shared/services/space.service';
+import { TasklistService } from 'src/app/shared/services/tasklist.service';
 
 @Component({
   selector: 'app-lists-page',
@@ -15,69 +17,42 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ListsPageComponent implements OnInit {
   openEditFormEvent: EventEmitter<Task> = new EventEmitter<Task>();
-  space: Space = {
-    id: 1,
-    name: 'Awesome space',
-    lists:  [
-      {
-        id: 1,
-        name: 'To do',
-        description: 'Tasks that must be done',
-        tasks: [
-          {id: 1, description: 'do smth', priority: TaskPriority.High, attendees: [ { firstName: 'John', lastName: 'Doe', imageThumbnailUrl: 'https://randomuser.me/api/portraits/thumb/men/75.jpg', imageUrl: '' } ], labels: [ {name: 'primary', status: TaskLabelStatus.PRIMARY} ]},
-          {id: 2, description: 'do nothing', priority: TaskPriority.High, attendees: [], labels: [ {name: 'secondary', status: TaskLabelStatus.SECONDARY} ]},
-          {id: 3, description: 'go shopping', priority: TaskPriority.Medium, attendees: [{ firstName: 'John', lastName: 'Doe', imageThumbnailUrl: 'https://randomuser.me/api/portraits/thumb/men/75.jpg', imageUrl: '' }, { firstName: 'Bobby', lastName: 'Bowman', imageThumbnailUrl: 'https://randomuser.me/api/portraits/thumb/men/7.jpg', imageUrl: '' }], labels: []},
-          {id: 4, description: 'take shower', priority: TaskPriority.Low, attendees: [] , labels: []},
-          {id: 5, description: 'eat smth new', priority: TaskPriority.High, attendees: [], labels: [{name: 'primary', status: TaskLabelStatus.PRIMARY}, {name: 'info', status: TaskLabelStatus.INFO}]}
-        ]
-      },
-      {
-        id: 2,
-        name: 'In progress',
-        description: 'Tasks that are currently in work',
-        tasks: [
-          {id: 1, description: 'do smth different', priority: TaskPriority.Low, attendees: [], labels: []},
-          {id: 2, description: 'do anything', priority: TaskPriority.Medium, attendees: [{ firstName: 'Milton', lastName: 'Green', imageThumbnailUrl: 'https://randomuser.me/api/portraits/thumb/men/36.jpg', imageUrl: '' }, { firstName: 'Rene', lastName: 'Hawkins', imageThumbnailUrl: 'https://randomuser.me/api/portraits/thumb/men/8.jpg', imageUrl: '' }, { firstName: 'Calvin', lastName: 'Rose', imageThumbnailUrl: 'https://randomuser.me/api/portraits/thumb/men/39.jpg', imageUrl: '' }], labels: [{name: 'warning', status: TaskLabelStatus.WARNING}, {name: 'primary', status: TaskLabelStatus.PRIMARY}, {name: 'success', status: TaskLabelStatus.SUCCESS}]},
-          {id: 3, description: 'go sport', priority: TaskPriority.High, attendees: [], labels: [{name: 'dark', status: TaskLabelStatus.DARK}, {name: 'danger', status: TaskLabelStatus.DANGER}]},
-          {id: 5, description: 'cook meal', priority: TaskPriority.Low, attendees: [], labels: []}
-        ]
-      },
-      {
-        id: 3,
-        name: 'Done',
-        description: 'Tasks that are done',
-        tasks: [
-          {id: 1, description: 'clean up', priority: TaskPriority.Medium, attendees: [], labels: [{name: 'info', status: TaskLabelStatus.INFO}, {name: 'dark', status: TaskLabelStatus.DARK}]},
-          {id: 2, description: 'feed the dog', priority: TaskPriority.High, attendees: [], labels: []},
-          {id: 3, description: 'buy stuff', priority: TaskPriority.Low, attendees: [{ firstName: 'Rene', lastName: 'Hawkins', imageThumbnailUrl: 'https://randomuser.me/api/portraits/thumb/men/8.jpg', imageUrl: '' }], labels: [{name: 'light', status: TaskLabelStatus.LIGHT}]},
-        ]
-      }
-    ]
-  };
+  space: Space = new Space();
+  spaceId: number;
 
-  constructor(private spacesService: SpacesMockService,
+  constructor(private spaceService: SpaceService, 
+    private tasklistService: TasklistService,
     public activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(p => console.log('param', p));
-
-    var spaces = [];
-    this.spacesService.getSpaces().subscribe(success => {
-      console.log('success', success);
-      this.space = success[0];
-    }, error => {
-      console.log('error', error);
+    this.activatedRoute.params.subscribe(p => {
+      console.log('param', p);
+      this.spaceId = p.id;
+      this.getBoards(p.id);
     });
-    //console.info(spaces);
-    //this.space = spaces[0];
   }
 
   addBoard(event: List) {
-      this.space.lists.push(event);
+    event.spaceId = this.spaceId;
+    this.tasklistService.createTaskList(event).subscribe(success => {
+      this.getBoards(this.spaceId);
+    }, error => {
+
+    });
+  }
+
+  getBoards(id: number) {
+    this.spaceService.getSpace(id).subscribe(success => {
+      this.space = success;
+      console.log('space ', success);
+    },
+    error => {
+      console.log('Error getting space');
+    });
   }
 
   onDrop(event: CdkDragDrop<List[]>) {
-    moveItemInArray(this.space.lists, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.space.taskLists, event.previousIndex, event.currentIndex);
   }
 
 }

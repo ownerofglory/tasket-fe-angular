@@ -18,7 +18,8 @@ export class AddTaskComponent implements OnInit {
 
   addTask() {
     const newTask = new Task();
-    newTask.description = this.taskModel.description;
+    newTask.title = this.taskModel.title;
+    newTask.description = '';
     console.log('new task', newTask);
     this.taskAddEvent.emit(newTask);
     this.taskModel = new Task();

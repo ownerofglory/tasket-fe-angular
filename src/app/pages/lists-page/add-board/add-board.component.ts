@@ -17,9 +17,9 @@ export class AddBoardComponent implements OnInit {
 
   addBoard() {
     const newBoard = new List();
-    newBoard.description = this.boardModel.description;
+    //newBoard.description = this.boardModel.description;
     newBoard.name = this.boardModel.name;
-    newBoard.tasks = [];
+    //newBoard.tasks = [];
     this.addBoardEvent.emit(newBoard);
     this.boardModel = new List();
   }

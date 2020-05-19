@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ListsPageComponent } from './pages/lists-page/lists-page.component';
 import { PagesModule } from './pages/pages.module';
 import { SpacesPageComponent } from './pages/spaces-page/spaces-page.component';
+import { SettingsPageModule } from './pages/settings-page/settings-page.module';
 
 
 @NgModule({

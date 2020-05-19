@@ -4,10 +4,12 @@ import { User } from './user.model';
 
 export class Task {
     id: number;
+    title: string;
     description: string;
     priority: TaskPriority;
     labels: TaskLabel[];
     attendees: User[];
+    taskListId: number;
 
     // copy(): Task {
     //     const task = new Task;

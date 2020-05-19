@@ -18,7 +18,7 @@
       <div class="card-body">
         <form>
           <div class="form-group">
-            <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" attr.name="inputtask_{{boardId}}" [(ngModel)]="taskModel.description">
+            <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" attr.name="inputtask_{{boardId}}" [(ngModel)]="taskModel.title">
             <small class="form-text text-muted">Enter task description</small>
             <button type="button" (click)="addTask()" class="btn btn-primary">Add</button>
           </div>
