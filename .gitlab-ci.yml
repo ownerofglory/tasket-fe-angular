@@ -1,8 +1,18 @@
+image: node:latest
+
 stages:
     - build
-    - test
     - deploy
 
-job 0:
+build:
     stage: build
-    script: ng build --prod
+    cache:
+        paths:
+            - node_modules/
+    script:
+        - npm install --quiet
+        - npm run build-prod
+
+deploy:
+    stage: deploy
+    
