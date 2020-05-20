@@ -3,8 +3,8 @@
 <br>
 <div class="container-fluid board-group">
   <div class="row">
-    <div class="col-lg-3 col-md-3" *ngFor="let list of space.taskLists">
-      <app-list [(list)]="list" [openEditFormEvent]="openEditFormEvent"></app-list>
+    <div class="col-lg-3 col-md-3 task-list" *ngFor="let list of space.taskLists">
+      <app-list [editTaskEvent]="editTaskEvent" [(list)]="list" [openEditFormEvent]="openEditFormEvent"></app-list>
     </div>
 
     <div class="col-md-2">
@@ -12,4 +12,4 @@
     </div>
   </div>
 </div>
-<app-edit-task [openEditFormEvent]="openEditFormEvent"></app-edit-task>
+<app-edit-task [editTaskEvent]="editTaskEvent" [openEditFormEvent]="openEditFormEvent"></app-edit-task>

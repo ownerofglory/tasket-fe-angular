@@ -2,8 +2,7 @@
       (click)="openEditForm()"  
       data-toggle="modal" 
       data-target="#exampleModal"
-      (onDragStart)="dragStart($event, task)" 
-      (onDragEnd)="dragEnd($event)"
+      cdkDrag
       pDraggable="task">
   <div class="">
     <p class="label-bar">

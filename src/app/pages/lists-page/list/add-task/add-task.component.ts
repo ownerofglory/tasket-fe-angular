@@ -10,6 +10,7 @@ export class AddTaskComponent implements OnInit {
   @Input() boardId: number;
   @Output() taskAddEvent: EventEmitter<Task> = new EventEmitter<Task>();
   taskModel: Task = new Task();
+  expaned = false;
 
   constructor() { }
 
@@ -23,5 +24,9 @@ export class AddTaskComponent implements OnInit {
     console.log('new task', newTask);
     this.taskAddEvent.emit(newTask);
     this.taskModel = new Task();
+  }
+
+  toggleExpand() {
+    this.expaned = !this.expaned;
   }
 }

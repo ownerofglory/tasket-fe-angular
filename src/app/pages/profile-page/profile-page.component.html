@@ -1,1 +1,72 @@
 <app-nav></app-nav>
+<div class="container background-light">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <p class="h1">Info</p>
+            <hr>
+            <form class="">
+                <div class="form-group row">
+                    <div class="col-sm-4 col-md-4 mb-3 mb-sm-0">
+                        <label for="exampleFirstName">First name</label>
+                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                            placeholder="First Name">
+
+                        <label for="exampleInputUsername">username</label>
+                        <input type="email" class="form-control form-control-user" id="exampleInputUsername"
+                            placeholder="username">
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <label for="exampleLastName">Last name</label>
+                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                            placeholder="Last Name">
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <p class="h4">Avatar</p>
+                        <img class="avatar" src="https://randomuser.me/api/portraits/women/40.jpg">
+                        <br>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Change avatar...</label>
+                            <div class="invalid-feedback">Cannot upload file</div>
+                        </div>
+                    </div>
+                </div>
+                <a class="btn btn-primary btn-user ">
+                    Save info
+                </a>
+            </form>
+            <br>
+            <p class="h1">Contact</p>
+            <hr>
+
+            <p class="h4">Email address:</p>
+            <div class="card">
+                <div class="card-body">
+                    <p>
+                        <code>test.test@mail.com</code>
+                    </p>
+                    <a (click)="toggleExpand()" *ngIf="!expanded" class="btn btn-secondary ">Change email</a>
+
+                    <div *ngIf="expanded" class="form-group">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                    placeholder="Email Address">
+                            </div>
+
+                            <div class="col-md-2">
+
+                                <a class="btn btn-primary btn-user ">
+                                    Save
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <form>
+            </form>
+        </div>
+    </div>
+</div>

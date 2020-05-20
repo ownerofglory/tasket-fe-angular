@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user.model';
 
@@ -8,7 +8,7 @@ import { User } from '../../models/user.model';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-  user: User = new User();
+  @Input() user: User = new User();
 
   constructor(private authService: AuthService) { }
 

@@ -10,16 +10,9 @@
       </div>
     </div>
 
-    <form>
-      <div class="form-group">
-        <input type="email" class="form-control" aria-describedby="emailHelp">
-        <small id="emailHelp" class="form-text text-muted">Enter text to search for a task.</small>
-      </div>
-    </form>
-
-    <div class="tasks-body cdk-list drag-column" (onDrop)="onDrop($event)" pDroppable="task">
+    <div class="tasks-body cdk-list drag-column" cdkDropList (cdkDropListDropped)="onDrop($event)" pDroppable="task">
       <app-task *ngFor="let task of list.tasks" 
-                #container  
+                cdkDrag
                 [(task)]="task" 
                 [openEditFormEvent]="openEditFormEvent">
       </app-task>

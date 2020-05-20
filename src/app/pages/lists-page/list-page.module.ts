@@ -14,13 +14,15 @@ import { FormsModule } from '@angular/forms';
 import { AddToTaskListComponent } from './list/edit-task/add-to-task-list/add-to-task-list.component';
 import { ActionsListComponent } from './list/edit-task/actions-list/actions-list.component';
 import { ListDropdownComponent } from './list/list-dropdown/list-dropdown.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
     imports: [
         CommonModule,
         BrowserModule,
         FormsModule,
-        SharedModule
+        SharedModule,
+        DragDropModule
     ],
     exports: [ListsPageComponent],
     declarations: [

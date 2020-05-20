@@ -29,4 +29,13 @@ export class TaskService {
     return this.httpClient.post(this.baseUrl, task, { headers: headers });
   }
 
+  update(task: Task): Observable<any> {
+    const token = localStorage.getItem('Authentication');
+    const headers = new HttpHeaders()
+      .set('Authorization', 'Bearer ' + token);
+    console.log('token', token);
+
+    return this.httpClient.put(this.baseUrl, task, { headers: headers });
+  }
+
 }

@@ -1,36 +1,43 @@
-<app-nav></app-nav>
-<div class="container-fluid background-light">
+<app-nav [user]="user"></app-nav>
+<div class="container background-light">
   <div class="row">
     <div class="col-md-2">
       <br>
       <div class="list-group">
         <button type="button" class="list-group-item list-group-item-action active">
-          Cras justo odio
+          Spaces
         </button>
-        <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-        <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-        <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
-        <button type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</button>
+        <button type="button" class="list-group-item list-group-item-action">Teams</button>
       </div>
     </div>
     <div class="col-md-10">
       <br>
       <div class="row">
-        <div class="col-md-12 jumbotron">
+        <div class="col-md-12">
           <p class="h2">Personal spaces</p>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-3" *ngFor="let space of spaces">
+        <div class="col-md-3 space-item" *ngFor="let space of spaces">
           <app-space [space]="space"></app-space>
+        </div>
+        <div class="col-md-3">
+          <app-add-space></app-add-space>
         </div>
       </div>
       <br>
       <div class="row">
         <div class="col-md-10">
-          <p class="h2">John Doe's projects</p>
+          <p class="h2">{{user.firstName}} {{user.lastName}}'s projects</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <app-add-space></app-add-space>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<app-add-space-modal (addSpaceEvent)="onAddSpace($event)"></app-add-space-modal>

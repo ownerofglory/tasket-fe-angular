@@ -29,4 +29,13 @@ constructor(private httpClient: HttpClient) { }
     return this.httpClient.get<Space>(this.baseUrl + `/${id}`, { headers: headers });
   }
 
+  createSpace(space: Space): Observable<any> {
+    const token = localStorage.getItem('Authentication');
+    const headers = new HttpHeaders()
+      .set('Authorization', 'Bearer ' + token);
+    console.log('token', token);
+
+    return this.httpClient.post<Space>(this.baseUrl, space, { headers: headers });
+  }
+
 }

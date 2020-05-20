@@ -17,6 +17,7 @@ import { TasklistService } from 'src/app/shared/services/tasklist.service';
 })
 export class ListsPageComponent implements OnInit {
   openEditFormEvent: EventEmitter<Task> = new EventEmitter<Task>();
+  editTaskEvent: EventEmitter<Task> = new EventEmitter<Task>();
   space: Space = new Space();
   spaceId: number;
 

@@ -14,9 +14,9 @@
           <div class="col-md-8">
             <form>
               <div class="form-group">
-                <label for="edit-task-description">Description</label>
-                <input id="edit-task-description" type="text" class="form-control" [ngModelOptions]="{standalone: true}"  [(ngModel)]="taskToEdit.description">
-                <small class="form-text text-muted">Edit task description</small>
+                <label for="edit-task-description">Title</label>
+                <input id="edit-task-description" type="text" class="form-control" [ngModelOptions]="{standalone: true}"  [(ngModel)]="taskToEdit.title">
+                <small class="form-text text-muted">Edit task title</small>
               </div>
               <app-priority-select></app-priority-select>
             </form>
@@ -33,7 +33,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button (click)="editTask()" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
       </div>
     </div>
   </div>

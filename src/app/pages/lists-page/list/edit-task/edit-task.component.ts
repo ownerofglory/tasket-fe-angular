@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from 'src/app/shared/models/task.model';
 
 @Component({
@@ -8,20 +8,25 @@ import { Task } from 'src/app/shared/models/task.model';
 })
 export class EditTaskComponent implements OnInit, OnDestroy {
   @Input() openEditFormEvent: EventEmitter<Task>;
-  taskToEdit: Task = new Task;
+  @Input() editTaskEvent: EventEmitter<Task>;
+  taskToEdit: Task = new Task();
 
   constructor() { }
 
   ngOnInit() {
     this.openEditFormEvent.subscribe(event => {
       console.log('task to edit', event);
-      this.taskToEdit.description = event.description;
+      this.taskToEdit.title = event.title;
       this.taskToEdit.id = event.id;
     });
   }
 
   ngOnDestroy() {
     this.openEditFormEvent.unsubscribe();
+  }
+
+  editTask() {
+    this.editTaskEvent.emit(this.taskToEdit);
   }
 
   onFocus(event) {

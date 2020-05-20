@@ -13,12 +13,17 @@ import { containsElement } from '@angular/animations/browser/src/render/shared';
 export class ListComponent implements OnInit {
   @Input() list: List;
   @Input() openEditFormEvent: EventEmitter<Task>;
+  @Input() editTaskEvent: EventEmitter<Task>;
 
 
   constructor(private taskService: TaskService) { }
 
   ngOnInit() {
     this.getAllTasks();
+    this.editTaskEvent.subscribe(event => {
+      event.taskListId = this.list.id;
+      this.updateTask(event);
+    })
   }
 
   getAllTasks() {
@@ -30,9 +35,18 @@ export class ListComponent implements OnInit {
     });
   }
 
-  onDrop(event) {
+  updateTask(task: Task) {
+    this.taskService.update(task).subscribe(success => {
+      this.getAllTasks();
+    },
+    error => {
+      console.log('error updating task', task, error);
+    });
+  }
+
+  onDrop(event: CdkDragDrop<Task[]>) {
     console.log('drop element', event);
-    //moveItemInArray(this.board.tasks, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.list.tasks, event.previousIndex, event.currentIndex);
   }
 
   moveTasks() {

@@ -1,6 +1,6 @@
 <div class="accordion" id="accordionExample">
   <div class="add-task-button">
-    <a class="btn add-task-header" type="button" data-toggle="collapse" attr.data-target="#collapse_{{ boardId }}" aria-expanded="false" attr.aria-controls="collapse_{{ boardId }}">
+    <a *ngIf="!expaned" (click)="toggleExpand()" class="btn add-task-header" type="button" data-toggle="collapse" attr.data-target="#collapse_{{ boardId }}" aria-expanded="false" attr.aria-controls="collapse_{{ boardId }}">
       
       <span class="add-task-icon">
         <i class="fas fa-plus add-task-icon"></i>
@@ -14,13 +14,20 @@
   
 
     <div id="collapse_{{ boardId }}" class="collapse" attr.aria-labelledby="heading_{{ boardId }}" data-parent="#accordionExample">
-      <div class="card">
-      <div class="card-body">
+      <div class="card add-task-card">
+      <div class="card-body add-task-form">
         <form>
-          <div class="form-group">
+          <div class="form-group none-margin">
             <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" attr.name="inputtask_{{boardId}}" [(ngModel)]="taskModel.title">
-            <small class="form-text text-muted">Enter task description</small>
-            <button type="button" (click)="addTask()" class="btn btn-primary">Add</button>
+            <small class="form-text text-muted">Enter task title</small>
+            <button type="button" (click)="addTask()" class="btn btn-primary">Add task</button>
+            <a *ngIf="expaned" (click)="toggleExpand()" class="btn add-task-header" type="button" data-toggle="collapse" attr.data-target="#collapse_{{ boardId }}" aria-expanded="false" attr.aria-controls="collapse_{{ boardId }}">
+      
+              <span class="add-task-icon">
+                <i class="fas fa-times"></i>
+              </span>
+      
+            </a>
           </div>
         </form>
       </div>
