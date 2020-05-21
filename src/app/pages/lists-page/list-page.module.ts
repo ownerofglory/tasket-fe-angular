@@ -15,11 +15,13 @@ import { AddToTaskListComponent } from './list/edit-task/add-to-task-list/add-to
 import { ActionsListComponent } from './list/edit-task/actions-list/actions-list.component';
 import { ListDropdownComponent } from './list/list-dropdown/list-dropdown.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     imports: [
         CommonModule,
         BrowserModule,
+        BrowserAnimationsModule,
         FormsModule,
         SharedModule,
         DragDropModule

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user.model';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,14 +10,14 @@ import { User } from '../../models/user.model';
 export class NavComponent implements OnInit {
   @Input() user: User = new User();
 
-  constructor(private authService: AuthService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.getCurrentUser();
   }
 
   getCurrentUser() {
-    this.authService.getCurrentUser()
+    this.userService.getCurrentUser()
       .subscribe(success => this.user = success,
                 error => console.error('error', error));
   }

@@ -2,8 +2,8 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 import { SpacesMockService } from 'src/app/shared/services/mock/spaces-mock.service';
 import { Space } from 'src/app/shared/models/space.model';
 import { SpaceService } from 'src/app/shared/services/space.service';
-import { AuthService } from 'src/app/shared/services/auth.service';
 import { User } from 'src/app/shared/models/user.model';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-spaces-page',
@@ -14,7 +14,7 @@ export class SpacesPageComponent implements OnInit {
   spaces: Space[];
   user: User;
 
-  constructor(private authService: AuthService,
+  constructor(private userService: UserService,
     private spaceService: SpaceService) { }
 
   ngOnInit() {
@@ -34,7 +34,7 @@ export class SpacesPageComponent implements OnInit {
   }
 
   getCurrentUser() {
-    this.authService.getCurrentUser()
+    this.userService.getCurrentUser()
       .subscribe(success => this.user = success,
                 error => console.error('error', error));
   }

@@ -9,7 +9,7 @@ import { RegisterUser } from '../models/dto/registeruser.model';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'https://localhost:5001/user';
+  private baseUrl = 'https://localhost:5001/auth';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -19,15 +19,6 @@ export class AuthService {
 
   login(creds: LoginUser): Observable<User> {
     return this.httpClient.post<User>(this.baseUrl + '/authenticate', creds);
-  }
-
-  getCurrentUser(): Observable<User> {
-    const token = localStorage.getItem('Authentication');
-    const headers = new HttpHeaders()
-      .set('Authorization', 'Bearer ' + token);
-    console.log('token', token);
-
-    return this.httpClient.get<User>(this.baseUrl + '/info', { headers: headers });
   }
 
 }

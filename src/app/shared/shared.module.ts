@@ -6,6 +6,9 @@ import { SpacesMockService } from './services/mock/spaces-mock.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerService } from './services/spinner/spinner.service';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { DraggableDirective } from './directives/draggable.directive';
+import { DroppableDirective } from './directives/droppable.directive';
+import { DragService } from './services/drag.service';
 
 @NgModule({
   imports: [
@@ -19,9 +22,12 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
   declarations: [
     SharedComponent,
     NavComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    DroppableDirective,
+    DraggableDirective
   ],
   providers: [
+    DragService
   ]
 })
 export class SharedModule { }

@@ -20,9 +20,10 @@ export class TaskComponent implements OnInit {
   }
 
 
-  dragStart(event, task: Task) {
-    console.log('drag start event', event);
-    console.log('task', task);
+  dragStart(event) {
+    event.dataTransfer.setData('text/plain', JSON.stringify(this.task));
+    console.log(`drag start event task ${this.task.title}`, event);
+    console.log('task', this.task);
   }
 
   dragEnd(event) {

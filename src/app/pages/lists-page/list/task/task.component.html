@@ -1,9 +1,12 @@
+<!-- cdkDrag
+      pDraggable="task" -->
+
 <div class="task list-group-item shadowed"
       (click)="openEditForm()"  
       data-toggle="modal" 
       data-target="#exampleModal"
-      cdkDrag
-      pDraggable="task">
+      draggable="true" 
+      (dragstart)="dragStart($event)" >
   <div class="">
     <p class="label-bar">
       <span *ngFor="let label of task.labels" class="badge badge-{{label.name}} task-label">{{label.name}}</span>

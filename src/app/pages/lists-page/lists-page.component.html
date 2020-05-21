@@ -3,8 +3,15 @@
 <br>
 <div class="container-fluid board-group">
   <div class="row">
-    <div class="col-lg-3 col-md-3 task-list" *ngFor="let list of space.taskLists">
-      <app-list [editTaskEvent]="editTaskEvent" [(list)]="list" [openEditFormEvent]="openEditFormEvent"></app-list>
+    <div class="col-lg-3 col-md-3 task-list" 
+      *ngFor="let list of space.taskLists; let i = index">
+      <app-list [editTaskEvent]="editTaskEvent" 
+                [(list)]="list" 
+                [cdkIndex]="i"
+                [openEditFormEvent]="openEditFormEvent"
+                [listNamesForCdk]="litstNamesForCdk"
+                #looped>
+      </app-list>
     </div>
 
     <div class="col-md-2">
