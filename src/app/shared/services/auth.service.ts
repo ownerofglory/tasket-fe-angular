@@ -9,8 +9,7 @@ import { RegisterUser } from '../models/dto/registeruser.model';
   providedIn: 'root'
 })
 export class AuthService {
-  //private baseUrl = 'https://localhost:5001/auth';
-  private baseUrl = 'https://tasket-monolith-backend.herokuapp.com/auth';
+  private baseUrl = 'https://localhost:5001/auth';
 
   constructor(private httpClient: HttpClient) {}
 

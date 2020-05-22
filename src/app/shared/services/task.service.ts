@@ -7,8 +7,7 @@ import { Task } from '../models/task.model';
   providedIn: 'root'
 })
 export class TaskService {
-  //private baseUrl = 'https://localhost:5001/task';
-  private baseUrl = 'https://tasket-monolith-backend.herokuapp.com/task';
+  private baseUrl = 'https://localhost:5001/task';
 
   constructor(private httpClient: HttpClient) { }
 
