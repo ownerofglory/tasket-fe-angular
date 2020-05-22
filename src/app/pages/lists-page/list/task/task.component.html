@@ -6,7 +6,9 @@
       data-toggle="modal" 
       data-target="#exampleModal"
       draggable="true" 
-      (dragstart)="dragStart($event)" >
+      (dragstart)="dragStart($event)"
+      (dragend)="dragEnd($event)"
+      [ngClass]="{'drag': dragToogle}">
   <div class="">
     <p class="label-bar">
       <span *ngFor="let label of task.labels" class="badge badge-{{label.name}} task-label">{{label.name}}</span>

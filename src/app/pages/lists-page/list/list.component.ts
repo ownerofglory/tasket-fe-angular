@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Task } from 'src/app/shared/models/task.model';
 import { List } from 'src/app/shared/models/list.model';
@@ -14,9 +14,7 @@ export class ListComponent implements OnInit {
   @Input() list: List;
   @Input() openEditFormEvent: EventEmitter<Task>;
   @Input() editTaskEvent: EventEmitter<Task>;
-  @Input() listNamesForCdk: string[];
-  @Input() cdkIndex: number;
-  connectedToStringForCdk = '[]';
+  @Input() taskMoveEvent: EventEmitter<Task>;
 
 
   constructor(private taskService: TaskService) { }
@@ -27,13 +25,14 @@ export class ListComponent implements OnInit {
       event.taskListId = this.list.id;
       this.updateTask(event);
     });
+    this.taskMoveEvent.subscribe(event => {
+      this.getAllTasks();
+    });
   }
 
   getAllTasks() {
     this.taskService.getAllByTaskListId(this.list.id).subscribe(success => {
       this.list.tasks = success;
-
-      this.createConnectedToStringForCdk();
     },
       error => {
         console.error('Error getting tasks', error);
@@ -49,15 +48,6 @@ export class ListComponent implements OnInit {
       });
   }
 
-  onDrop(event: CdkDragDrop<Task[]>) {
-    console.log('drop element', event);
-    if (event.previousContainer === event.container) {
-      //moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      event.container.data[event.currentIndex] = event.previousContainer.data[event.previousIndex];
-    }
-    //moveItemInArray(this.list.tasks, event.previousIndex, event.currentIndex);
-  }
 
   allowDrop(event) {
     event.preventDefault();
@@ -66,31 +56,27 @@ export class ListComponent implements OnInit {
   drop(event) {
     event.preventDefault();
     console.log(`drop event list${this.list.name}`, event);
-    var data = event.dataTransfer.getData("text");
+    var data = event.dataTransfer.getData('text');
     console.log('transfered data', data);
     var task = JSON.parse(data);
+    if (task.taskListId === this.list.id) {
+      return;
+    }
     task.taskListId = this.list.id;
     this.list.tasks.push(task);
-    //ev.target.appendChild(document.getElementById(data));
+    this.taskService.update(task).subscribe(success => {
+      console.log('task moved', task);
+      this.taskMoveEvent.emit(task);
+    }, error => {
+      console.log('error moving task');
+    });
   }
 
-  onCustomDrop(event) {
-    event.preventDefault();
-    console.log('custom drop event', event);
-  }
 
   onDragOver(event) {
     event.stopPropagation();
     event.preventDefault();
     console.log('drag over ovent', event);
-  }
-
-  drag(event) {
-
-  }
-
-  moveTasks() {
-
   }
 
   onTaskAdd(event: Task) {
@@ -103,18 +89,6 @@ export class ListComponent implements OnInit {
       });
   }
 
-  createConnectedToStringForCdk() {
-    const currentName = `cdk-drop-list-${this.cdkIndex}`;
-    const connectedToArray = this.listNamesForCdk.filter(listName => listName !== currentName);
-    this.connectedToStringForCdk = '[';
-    for (let i = 0; i < connectedToArray.length; i++) {
-      this.connectedToStringForCdk += connectedToArray[i];
-      if (i !== connectedToArray.length - 1) {
-        this.connectedToStringForCdk += ',';
-      }
-    }
-    this.connectedToStringForCdk += ']';
-  }
 
 
 }

@@ -15,25 +15,16 @@ import { TasklistService } from 'src/app/shared/services/tasklist.service';
   templateUrl: './lists-page.component.html',
   styleUrls: ['./lists-page.component.scss']
 })
-export class ListsPageComponent implements OnInit, AfterViewInit {
+export class ListsPageComponent implements OnInit {
   openEditFormEvent: EventEmitter<Task> = new EventEmitter<Task>();
   editTaskEvent: EventEmitter<Task> = new EventEmitter<Task>();
+  taskMoveEvent: EventEmitter<Task> = new EventEmitter<Task>();
   space: Space = new Space();
   spaceId: number;
-  litstNamesForCdk = [];
-  @ViewChildren('looped') listsForCdk: QueryList<any>;
 
   constructor(private spaceService: SpaceService, 
     private tasklistService: TasklistService,
     public activatedRoute: ActivatedRoute) { }
-
-  ngAfterViewInit(): void {
-    this.listsForCdk.forEach((list, index) => {
-      let el : HTMLDivElement = list.nativeElement;
-      console.log('element list', list);
-      el.setAttribute('tasklist_' + index , 'cdkDropList');
-    });
-  }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(p => {
@@ -57,8 +48,6 @@ export class ListsPageComponent implements OnInit, AfterViewInit {
     this.spaceService.getSpace(id).subscribe(success => {
       this.space = success;
       console.log('space ', success);
-      this.collectListNamesForCdk();
-      console.log(this.litstNamesForCdk);
     },
     error => {
       console.log('Error getting space');
@@ -67,15 +56,6 @@ export class ListsPageComponent implements OnInit, AfterViewInit {
 
   onDrop(event: CdkDragDrop<List[]>) {
     moveItemInArray(this.space.taskLists, event.previousIndex, event.currentIndex);
-  }
-
-  collectListNamesForCdk() {
-    for (let i = 0; i < this.space.taskLists.length; i++) {
-      this.litstNamesForCdk.push(`cdk-drop-list-${i}`);
-    }
-    // this.space.taskLists.forEach(list => {
-    //   this.litstNamesForCdk.push(`tasklist_${list.id}`);
-    // });
   }
 
 }

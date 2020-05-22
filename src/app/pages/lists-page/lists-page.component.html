@@ -7,10 +7,8 @@
       *ngFor="let list of space.taskLists; let i = index">
       <app-list [editTaskEvent]="editTaskEvent" 
                 [(list)]="list" 
-                [cdkIndex]="i"
-                [openEditFormEvent]="openEditFormEvent"
-                [listNamesForCdk]="litstNamesForCdk"
-                #looped>
+                [taskMoveEvent]="taskMoveEvent"
+                [openEditFormEvent]="openEditFormEvent">
       </app-list>
     </div>
 

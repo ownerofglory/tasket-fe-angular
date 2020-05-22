@@ -13,33 +13,10 @@
       </div>
     </div>
 
-    <!-- 
-      [attr.cdkDropConnectedTo]="connectedToStringForCdk"
-    [cdkDropListData]="list.tasks"
-    pDroppable="task"
-    cdkDrop
-    [attr.id]="'cdk-drop-list-' + list.id"
-    cdkDropList  
-    (cdkDropListDropped)="onDrop($event)"
-      
-      
-      attr.cdkDropConnectedTo="{{connectedToStringForCdk}}"
-    [cdkDropListData]="list.tasks"
-    pDroppable="task"
-    cdkDrop
-    #listname="cdkDropList"
-    cdkDropList  
-            (cdkDropListDropped)="onDrop($event)" 
-
-
-            ---
-            cdkDrag
-          -->
-
     <div class="tasks-body cdk-list drag-column">
       <app-task *ngFor="let task of list.tasks" 
                 [(task)]="task" 
-                cdkDrag
+                
                 [openEditFormEvent]="openEditFormEvent">
       </app-task>
     </div>

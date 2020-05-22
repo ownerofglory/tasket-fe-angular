@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SpaceService {
-  private baseUrl = 'https://localhost:5001/space';
+  //private baseUrl = 'https://localhost:5001/space';
+  private baseUrl = 'https://tasket-monolith-backend.herokuapp.com/space';
 
 constructor(private httpClient: HttpClient) { }
 

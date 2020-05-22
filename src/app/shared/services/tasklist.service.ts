@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TasklistService {
-  private baseUrl = 'https://localhost:5001/tasklist';
+  //private baseUrl = 'https://localhost:5001/tasklist';
+  private baseUrl = 'https://tasket-monolith-backend.herokuapp.com/tasklist';
 
   constructor(private httpClient: HttpClient) { }
 

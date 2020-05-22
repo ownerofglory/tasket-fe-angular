@@ -7,7 +7,8 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'https://localhost:5001/user';
+  //private baseUrl = 'https://localhost:5001/user';
+  private baseUrl = 'https://tasket-monolith-backend.herokuapp.com/user';
 
   constructor(private httpClient: HttpClient) {}
 
