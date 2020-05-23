@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { List } from '../models/list.model';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TasklistService {
-  private baseUrl = 'https://localhost:5001/tasklist';
+  private baseUrl = environment.serverUrl +  '/tasklist';
 
   constructor(private httpClient: HttpClient) { }
 

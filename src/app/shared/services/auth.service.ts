@@ -4,12 +4,13 @@ import { LoginUser } from '../models/dto/loginuser.model';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
 import { RegisterUser } from '../models/dto/registeruser.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'https://localhost:5001/auth';
+  private baseUrl = environment.serverUrl +  '/auth';
 
   constructor(private httpClient: HttpClient) {}
 

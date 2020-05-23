@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  serverUrl: "PLACEHOLDER"
+  production: true,
+  serverUrl: "https://tasket-monolith-backend.herokuapp.com"
 };
 
 /*

@@ -10,5 +10,5 @@ build:
             - node_modules/
     script:
         - npm install --quiet
-        - npm run build-prod
+        - npm run build --configuration=production
 
