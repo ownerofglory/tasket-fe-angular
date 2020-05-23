@@ -2,6 +2,7 @@ image: node:latest
 
 stages:
     - build
+    - deploy
 
 build:
     stage: build
@@ -11,4 +12,13 @@ build:
     script:
         - npm install --quiet
         - npm run build --configuration=production
+
+deploy:
+    stage: deploy
+    cache: 
+        paths:
+            - node_modules/
+        script:
+            - gem install dpl
+            - dpl --provider=heroku --app=vlady-tasks --api-key=$HEROKU_API_KEY
 
