@@ -18,7 +18,7 @@ deploy:
     cache: 
         paths:
             - node_modules/
-        script:
+    script:
             - gem install dpl
             - dpl --provider=heroku --app=vlady-tasks --api-key=$HEROKU_API_KEY
 
