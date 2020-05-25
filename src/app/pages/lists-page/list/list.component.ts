@@ -4,6 +4,8 @@ import { Task } from 'src/app/shared/models/task.model';
 import { List } from 'src/app/shared/models/list.model';
 import { TaskService } from 'src/app/shared/services/task.service';
 import { containsElement } from '@angular/animations/browser/src/render/shared';
+import { callLifecycleHooksChildrenFirst } from '@angular/core/src/view/provider';
+import { UpdatePair } from 'src/app/shared/interfaces/update-pair';
 
 @Component({
   selector: 'app-list',
@@ -14,7 +16,7 @@ export class ListComponent implements OnInit {
   @Input() list: List;
   @Input() openEditFormEvent: EventEmitter<Task>;
   @Input() editTaskEvent: EventEmitter<Task>;
-  @Input() taskMoveEvent: EventEmitter<Task>;
+  @Input() taskMoveEvent: EventEmitter<UpdatePair<Task>>;
 
 
   constructor(private taskService: TaskService) { }
@@ -26,7 +28,13 @@ export class ListComponent implements OnInit {
       this.updateTask(event);
     });
     this.taskMoveEvent.subscribe(event => {
-      this.getAllTasks();
+      var oldTask = event.old;
+      var foundTask = this.list.tasks.find(t => t.id === oldTask.id);
+
+      if (foundTask) {
+        this.list.tasks = this.list.tasks.filter(t => t.id !== oldTask.id);
+        this.getAllTasks();
+      }
     });
   }
 
@@ -58,15 +66,16 @@ export class ListComponent implements OnInit {
     console.log(`drop event list${this.list.name}`, event);
     var data = event.dataTransfer.getData('text');
     console.log('transfered data', data);
-    var task = JSON.parse(data);
-    if (task.taskListId === this.list.id) {
+    var oldTask = JSON.parse(data);
+    var newTask = JSON.parse(data);
+    if (oldTask.taskListId === this.list.id) {
       return;
     }
-    task.taskListId = this.list.id;
-    this.list.tasks.push(task);
-    this.taskService.update(task).subscribe(success => {
-      console.log('task moved', task);
-      this.taskMoveEvent.emit(task);
+    newTask.taskListId = this.list.id;
+    this.list.tasks.push(newTask);
+    this.taskService.update(newTask).subscribe(success => {
+      console.log('task moved', newTask);
+      this.taskMoveEvent.emit({ old: oldTask, new: newTask });
     }, error => {
       console.log('error moving task');
     });

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskPriority } from 'src/app/shared/models/task-priority.enum';
 
 @Component({
   selector: 'app-priority-select',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./priority-select.component.scss']
 })
 export class PrioritySelectComponent implements OnInit {
+  priority: TaskPriority;
 
   constructor() { }
 
@@ -14,5 +16,6 @@ export class PrioritySelectComponent implements OnInit {
 
   changePriority(event) {
     console.log('selected', event);
+    this.priority =  event.target.value;
   }
 }

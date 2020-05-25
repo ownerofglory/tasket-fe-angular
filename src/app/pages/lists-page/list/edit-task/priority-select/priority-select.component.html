@@ -4,16 +4,18 @@
       <label for="exampleFormControlSelect1">Priority</label>
     </div>
     <div class="col-md-6">
-      <select (select)="changePriority($event)" class="form-control" id="exampleFormControlSelect1">
-        <option>Low
-        </option>
-        <option selected="true">Medium</option>
-        <option>High</option>
+      <select (change)="changePriority($event)" class="form-control" id="exampleFormControlSelect1">
+        <option value="LOW">Low</option>
+        <option value="MEDIUM" selected="true">Medium</option>
+        <option value="HIGH">High</option>
       </select>
     </div>
-    <div class="col-md-3">
-      <i class="fas fa-equals"></i>
+    <div [ngSwitch]="priority" class="col-md-3">
+      <i *ngSwitchCase="'LOW'"  class="fas fa-equals"></i>
+      <i *ngSwitchCase="'HIGH'"  class="fas fa-low"></i>
+      <i *ngSwitchCase="'MEDIUM'"  class="fas fa-high"></i>
     </div>
+
   </div>
   
   
