@@ -1,6 +1,12 @@
-# MyTasks
+# Tasket Frontend
+Sample project which first meant to be a clone of Trello.
+I created it during the first lockdown due to COVID-19 pandemia in Spring 2020. 
+Project is still in development.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+# Demo
+Project demo is currently deployed on Heroku:
+Click [here](https://vlady-tasks.herokuapp.com/) to open the demo
+
 
 ## Development server
 
